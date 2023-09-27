@@ -1,6 +1,16 @@
 services:
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - 5432:5432  # enables connecting locally via psql
+    environment:
+      POSTGRES_DB: client_server
+      POSTGRES_HOST_AUTH_METHOD: trust
+
   backend:
     build: .
+    depends_on:
+      - postgres # to connect to and depend on the ‘postgres’ service:
     ports:
       - 5000:5000
       - 9229:9229  # debugger port
@@ -10,4 +20,5 @@ services:
       - /usr/src/app/node_modules
     command: pnpm start:docker
     environment:
+      DATABASE_URL: postgres://postgres@postgres/client_server
       PORT: 5000

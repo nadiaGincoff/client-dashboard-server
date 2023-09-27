@@ -8,6 +8,11 @@ WORKDIR /usr/src/app
 # Installs dependencies, specifying --frozen-lockfile to ensure our lock file isn’t changed
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
+
+# Build the Prisma client
+COPY prisma/schema.prisma ./prisma/
+RUN pnpx prisma generate
+
 # Copies over the rest of the files (excluding ignored files, which we’ll cover next)
 COPY . .
 # And finally, exposes a port and sets a default start command

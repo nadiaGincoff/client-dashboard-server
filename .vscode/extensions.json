@@ -2,6 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "gruntfuggly.triggertaskonsave" // enable restart my container upon file saves.
+    "gruntfuggly.triggertaskonsave", // enable restart my container upon file saves.
+    "prisma.prisma"
   ]
 }
