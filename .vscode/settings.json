@@ -1,3 +1,11 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // define which files to watch (or actually, to not watch) and which task to run
+  "triggerTaskOnSave.tasks": {
+    "restart backend": ["src/**/*"]
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true
+  },
 }
