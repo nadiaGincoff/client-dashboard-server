@@ -1,7 +1,7 @@
-import db from '../../src/modules/db';
+import prisma from '../../src/modules/db';
 
 const run = async () => {
-  await db.provider.createMany({
+  await prisma.provider.createMany({
     data: [
       {
         id: 1,
