@@ -1,8 +1,8 @@
 import express from 'express';
-import { providersRouter } from './providers/providers.router';
+import { usersRouter } from './users/users.router';
 
 const api = express.Router();
 
-api.use('/', providersRouter);
+api.use('/', usersRouter);
 
 export { api }

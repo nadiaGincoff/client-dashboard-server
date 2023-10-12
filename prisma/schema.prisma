@@ -10,15 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Provider {
+model User {
   id          Int       @id @default(autoincrement())
-  name        String    @unique
-  url         String    @unique
-  phoneNumber Int
+  name        String    
+  password    String    
   email       String    @unique
-  address     String?
+  role        Role      @default(USER) 
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
-  @@map(name: "providers") // use "providers" as the table name
+  @@map(name: "users") // use "users" as the table name
+}
+
+enum Role {
+  USER
+  ADMIN
 }

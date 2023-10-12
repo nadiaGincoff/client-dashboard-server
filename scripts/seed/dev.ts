@@ -1,23 +1,21 @@
 import prisma from '../../src/modules/db';
 
 const run = async () => {
-  await prisma.provider.createMany({
+  await prisma.user.createMany({
     data: [
       {
         id: 1,
         name: 'nadia gincoff',
-        url: 'nadia-gincoff',
-        phoneNumber: 23232323,
+        password: '123456789',
         email: 'nadia.gincoff@gmail.com',
-        address: 'Calle falsa 123'
+        role: 'ADMIN',
       },
       {
         id: 2,
         name: 'Got Just',
-        url: 'got-just',
-        phoneNumber: 23232323,
+        password: '123456789',
         email: 'got-just@gmail.com',
-        address: 'Calle falsa 123'
+        role: 'ADMIN',
       },
     ]
   })
